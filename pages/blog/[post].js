@@ -8,7 +8,7 @@ function Post({ frontmatter, body }) {
   return (
     <Layout pageTitle={frontmatter.title}>
       <div className="w-full">
-        <article className="max-w-none">
+        <article className="prose max-w-none">
           <h1>{frontmatter.title}</h1>
           <p className="italic">{frontmatter.date}</p>
           <ReactMarkdown>{body}</ReactMarkdown>
