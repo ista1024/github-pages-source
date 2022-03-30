@@ -6,7 +6,9 @@ import Link from "next/link";
 const Index = ({ posts }: any) => {
   return (
     <Layout pageTitle="My Blog">
-      <h1 className="text-2xl font-semibold">Blog Posts</h1>
+      <div className="prose max-w-none">
+        <h1>Blog Posts</h1>
+      </div>
       <PostsList posts={posts} />
     </Layout>
   );
