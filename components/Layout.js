@@ -1,4 +1,5 @@
 import Head from "next/head";
+import ActiveLink from "../components/ActiveLink";
 
 function Layout({ children, pageTitle }) {
   return (
@@ -10,8 +11,12 @@ function Layout({ children, pageTitle }) {
       <div className="flex flex-col min-h-screen">
         <header className="w-full h-16 border-b border-purple-500 flex items-center justify-center">
           <div className="w-11/12 md:w-full max-w-3xl flex flex-row justify-between">
-            <div className="text-2xl text-purple-500">My Blog</div>
-            <nav className="text-2xl text-gray-600">Blog</nav>
+            <div className="text-2xl text-purple-500">
+              <ActiveLink href="/">
+                <a>My Blog</a>
+              </ActiveLink>
+            </div>
+            <AppNav />
           </div>
         </header>
         <main className="w-11/12 md:w-full max-w-2xl mx-auto my-8 flex-grow">
@@ -24,6 +29,19 @@ function Layout({ children, pageTitle }) {
         </footer>
       </div>
     </>
+  );
+}
+
+function AppNav() {
+  return (
+    <nav className="text-2xl text-gray-600">
+      <ActiveLink href="/" activeClassName="text-purple-500">
+        <a className="hover:text-purple-500">Blog</a>
+      </ActiveLink>
+      <ActiveLink href="/about" activeClassName="text-purple-500">
+        <a className="hover:text-purple-500">About</a>
+      </ActiveLink>
+    </nav>
   );
 }
 
