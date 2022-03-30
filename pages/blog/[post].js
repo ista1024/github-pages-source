@@ -1,7 +1,8 @@
 import { postSlugs, postForSlug } from "../../posts";
 import Layout from "../../components/Layout";
 import ReactMarkdown from "react-markdown";
-import CodeBlock from "../../components/CodeBlock";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { duotoneDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
 function Post({ frontmatter, body }) {
   if (!frontmatter) return <></>;
@@ -12,7 +13,25 @@ function Post({ frontmatter, body }) {
         <article className="prose max-w-none">
           <h1>{frontmatter.title}</h1>
           <p className="italic">{frontmatter.date}</p>
-          <ReactMarkdown renderers={{ code: CodeBlock }}>{body}</ReactMarkdown>
+          <ReactMarkdown
+            components={{
+              code({ node, inline, className, ...props }) {
+                const match = /language-(\w+)/.exec(className || "");
+                return (
+                  <SyntaxHighlighter
+                    style={duotoneDark}
+                    language={match[1]}
+                    PreTag="div"
+                    className="codeStyle"
+                    showLineNumbers={false}
+                    {...props}
+                  />
+                );
+              },
+            }}
+          >
+            {body}
+          </ReactMarkdown>
         </article>
       </div>
     </Layout>
