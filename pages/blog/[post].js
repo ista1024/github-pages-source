@@ -2,7 +2,7 @@ import { postSlugs, postForSlug } from "../../posts";
 import Layout from "../../components/Layout";
 import ReactMarkdown from "react-markdown";
 import SyntaxHighlighter from "react-syntax-highlighter";
-import { duotoneDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { nightOwl } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
 function Post({ frontmatter, body }) {
   if (!frontmatter) return <></>;
@@ -19,7 +19,7 @@ function Post({ frontmatter, body }) {
                 const match = /language-(\w+)/.exec(className || "");
                 return (
                   <SyntaxHighlighter
-                    style={duotoneDark}
+                    style={nightOwl}
                     language={match[1]}
                     PreTag="div"
                     className="codeStyle"
