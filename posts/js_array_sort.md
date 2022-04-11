@@ -9,7 +9,6 @@ date: "2022-04-01"
 ```javascript
 // sort by date desc
 Array.sort(
-  (date1, date2) =>
-  new Date(date2.frontmatter.date) - new Date(date1.frontmatter.date)
+  (date1, date2) => new Date(date2) - new Date(date1)
 );
 ```
