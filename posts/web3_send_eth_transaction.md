@@ -12,9 +12,14 @@ There are three main steps in order to send a transaction to the Ethereum blockc
 chainId: eth_chainId
 nonce: eth_getTransactionCount
 block_info: eth_getBlockByNumber
-gas: eth_gasPrice
+gas: eth_gasPrice or eth_estimateGas
+
 
 sendSignedTransaction(signTransaction.rawTransaction)
+
+sentSignedTransaction: eth_sendRawTransaction
+
+TransactionHash: eth_getTransactionReceipt
 
 ---
 ## Reference
