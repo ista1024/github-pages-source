@@ -2,7 +2,7 @@
 
 title: "WEB3 send ethereum transaction"
 description: "Steps to send block chain transaction"
-date: 2022 April 11
+date: "2022-04-01"
 
 ---
 
