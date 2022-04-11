@@ -9,7 +9,12 @@ date: "2022-04-01"
 There are three main steps in order to send a transaction to the Ethereum blockchain: create, sign, and broadcast.
 
 ### first
+chainId: eth_chainId
+nonce: eth_getTransactionCount
+block_info: eth_getBlockByNumber
+gas: eth_gasPrice
 
+sendSignedTransaction(signTransaction.rawTransaction)
 
 ---
 ## Reference
