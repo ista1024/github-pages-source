@@ -2,12 +2,16 @@ import matter from "gray-matter";
 
 export const postSlugs = () =>
   ((context) => {
+    const keys = context.keys();
     return context
       .keys()
-      .map((key) => key.replace(/^.*[\\\/]/, "").slice(0, -3));
+      .map((key) => key.replace(/(^.*?)[\\\/]/, "").slice(0, -3));
   })(require.context("./", true, /\.md$/));
 
 export const postForSlug = async (slug) => {
+  if (slug.length > 1) {
+    slug = slug.join("/");
+  }
   const document = await import(`./${slug}.md`);
   const { data: frontmatter, content: body } = matter(document.default);
 
@@ -22,7 +26,7 @@ export const posts = () =>
     return keys
       .map((key, index) => {
         // We'll use the filename as a 'slug' for the post - this will be used for the post's route
-        const slug = key.replace(/^.*[\\\/]/, "").slice(0, -3);
+        const slug = key.replace(/(^.*?)[\\\/]/, "").slice(0, -3);
         const document = documents[index];
         const { data: frontmatter, content: body } = matter(document.default);
 
