@@ -1,6 +1,6 @@
 ---
 
-title: "Javascript Array sort"
+title: "Javascript Object Prototype"
 description: "Method to sort array"
 date: "2022-04-12"
 
