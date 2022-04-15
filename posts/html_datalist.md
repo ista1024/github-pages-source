@@ -2,13 +2,13 @@
 
 title: "HTML <datalist>"
 description: "Method to sort array"
-date: "2022-04-13"
+date: "2022-04-14"
 
 ---
 
 Easy way to develop autocomplete input
 
-[`<datalist>` MDN link](https://developer.mozilla.org/ko/docs/Web/HTML/Element/datalist)
+[MDN link](https://developer.mozilla.org/ko/docs/Web/HTML/Element/datalist)
 
 ```html
 <label for="ice-cream-choice">Choose a flavor:</label>

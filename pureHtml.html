@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+  </head>
+  <body style="font-family: consolas">
+    <p id="tmpP001"></p>
+    <p id="tmpP002">
+      <span id="span00201">HttpProvider: </span><span id="span00202"></span
+      ><span id="span00203">, connected: </span><span id="span00204"></span>
+    </p>
+    <p id="tmpP003"></p>
+    <script>
+      var httpProvider = "http://192.168.1.80:10010/";
+      var web3 = new Web3(new Web3.providers.HttpProvider(httpProvider));
+
+      tmpP001.innerText = `web3 version: ${web3.version}`;
+
+      let eth_net_isListening = async () => {
+        return web3.eth.net.isListening();
+      };
+
+      let currentProvider = web3.eth.accounts.currentProvider;
+      span00202.innerText = `${currentProvider.host}`;
+
+      eth_net_isListening().then((value) => {
+        tmpP003.innerText = `eth net isListening: ${value}`;
+        console.log("eth_net_isListening", value);
+        span00204.innerText = `${currentProvider.connected}`;
+      });
+
+      var test_object_01 = (fullNode, val) => {
+        for ([key, value] of Object.entries(fullNode[val])) {
+          console.log(key, typeof value);
+        }
+      };
+
+      // var fullNode = web3;
+
+      var result = [];
+
+      // same as Object.getOwnPropertyNames(web3).sort()
+      var tmpFunc001 = (currentNode) => {
+        result = [];
+        Object.getOwnPropertyNames(currentNode)
+          .sort()
+          .map((value, index) => {
+            // console.log(value, typeof currentNode[value]);
+            result.push({
+              id: index,
+              name: value,
+              type: typeof currentNode[value],
+            });
+          });
+        return result;
+      };
+
+      /*
+      var tmpFunc001 = (currentNode) => {
+        result = [];
+        for ([index, [key, value]] of Object.entries(
+          Object.entries(currentNode).sort()
+        )) {
+          if (value) {
+            if (typeof value == "string" || typeof value == "function") {
+              // console.log("Object.entries",index, key, typeof value);
+              result.push({ id: index, name: key, value: typeof value });
+            }
+            if (typeof value == "object") {
+              // console.log("Object.entries",index, key, typeof value);
+              // test_object_01(currentNode, key);
+              result.push({ id: index, name: key, value: typeof value });
+            }
+          } else {
+            // console.log("Object.entries",index, key, typeof value);
+            result.push({ id: index, name: key, value: typeof value });
+          }
+        }
+        return result;
+      };
+      */
+
+      const sorted = () => {
+        Object.keys(web3)
+          .sort()
+          .map((x) => {
+            console.log(x);
+          });
+      };
+
+      var wrapSortObject = tmpFunc001;
+
+      /* Things I need to control:
+       * 1. currentNode = web3[nodeName]
+       * 2. childNodeList = tmpFunc001(currentNode);
+       * 3. selectedNode = childNodeList[selectedNodeIndex];
+       */
+      // currentNode
+      var tmpVar001 = web3;
+      // childNodeList
+      var tmpVar002 = tmpFunc001(tmpVar001);
+      // selectedNode
+      var tmpVar003 = tmpVar002[1];
+      console.log(tmpVar003);
+      // newCurrentNode
+      var tmpVar004 = tmpVar001[tmpVar003.name];
+      // newChildNodeList
+      var tmpVar005 = tmpFunc001(tmpVar004);
+      // newSelectedNode
+      var tmpVar006 = tmpVar005[1];
+
+      var tmp001 = {
+        from: "0xd5fAfE2FC1CaF4D365df0a19e52fb43147690E6B",
+        to: "0xF0109fC8DF283027b6285cc889F5aA624EaC1F55",
+        value: "5000000000000000000",
+        gas: "21000",
+      };
+      var tmp002 =
+        "0x19c4921499446a67b418fdc4a9807326481d4e2baea184ac46a81fa9d643ee57";
+    </script>
+  </body>
+</html>
