@@ -2,7 +2,7 @@
 
 title: "Javascript Object Prototype"
 description: "Method to sort array"
-date: "2022-04-12"
+date: "2022-04-13"
 
 ---
 
