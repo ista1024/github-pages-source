@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "export": "next export"
+    "export": "next build && next export"
   },
   "dependencies": {
     "@iconify/icons-simple-icons": "^1.2.7",
