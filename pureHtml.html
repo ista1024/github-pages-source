@@ -18,6 +18,8 @@
     <label for="accept">
       <input type="checkbox" id="accept" name="accept" value="yes" /> Accept
     </label>
+    <button id="tmpB001">123</button>
+    <a id="tmpA001"></a>
     <script>
       var httpProvider = "http://192.168.1.80:10010/";
       var web3 = new Web3(new Web3.providers.HttpProvider(httpProvider));
@@ -125,6 +127,69 @@
       };
       var tmp002 =
         "0x19c4921499446a67b418fdc4a9807326481d4e2baea184ac46a81fa9d643ee57";
+
+      var tmpInt001 = 1 << 12;
+      var tmpObj001 = {
+        title:
+          "Apple iPhone 4S Sale Cancelled in Beijing Amid Chaos (Design You Trust)",
+        description:
+          "Advertise here with BSA Apple cancelled its scheduled sale of iPhone 4S in one of its stores in China\u2019s capital Beijing on January 13. Crowds outside the store in the Sanlitun district were waiting on queues overnight. There were incidents of scuffle between shoppers and the store\u2019s security staff when shoppers, hundreds of them, were told that the sales [...]Source : Design You TrustExplore : iPhone, iPhone 4, Phone",
+        link: "http:\/\/wik.io\/info\/US\/309201303",
+        timestamp: 1326439500,
+        image: null,
+        embed: null,
+        language: null,
+        user: null,
+        user_image: null,
+        user_link: null,
+        user_id: null,
+        geo: null,
+        source: "wikio",
+        favicon: "http:\/\/wikio.com\/favicon.ico",
+        type: "blogs",
+        domain: "wik.io",
+        id: "2388575404943858468",
+      };
+      console.log(tmpObj001);
+      var tmpArr001 = [];
+      [...Array(tmpInt001)].map((x) => {
+        // tmpObj001["name"] = Math.floor(Math.random() * 1000);
+        // tmpObj001["color"] = Math.floor(Math.random() * 1000);
+        // tmpObj001["size"] = Math.floor(Math.random() * 1000);
+        tmpArr001.push(tmpObj001);
+      });
+
+      var tmpFunc002 = (json) => {
+        let fileName = "test.csv";
+        let dlAnchorElement = document.querySelector("#tmpA001");
+        let array = typeof json != "object" ? JSON.parse(json) : json;
+        let str = "";
+        let row = "";
+        for (let index in array[0]) {
+          //Now convert each value to string and comma-separated
+          row += index + ",";
+        }
+        console.log(row);
+        row = row.slice(0, -1);
+        //append Label row with line break
+        str += row + "\r\n";
+        for (let i = 0; i < array.length; i++) {
+          let line = "";
+          for (let index in array[i]) {
+            if (line != "") line += ",";
+            line += array[i][index];
+          }
+          str += line + "\r\n";
+        }
+        let blob = new Blob([str], { type: "text/csv" });
+        dlAnchorElement.href = window.URL.createObjectURL(blob);
+
+        // dlAnchorElement.setAttribute("href", "data:text/csv;charset=utf-8," + str);
+        // let dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(json));
+        // dlAnchorElement.setAttribute("href", dataStr);
+        dlAnchorElement.setAttribute("download", fileName);
+        dlAnchorElement.click();
+      };
     </script>
   </body>
 </html>
