@@ -6,6 +6,8 @@ date: "2022-04-28"
 
 ---
 
+정렬에 오래 걸리는 문제라면 -> 정렬이 꼭 필요한지 다시 생각해봐야함...
+
 ```javascript
 // sort by date desc
 Array.sort(
