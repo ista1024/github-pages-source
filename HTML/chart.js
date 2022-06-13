@@ -8,11 +8,11 @@ window.chartColors = {
   grey: "rgb(231,233,237)",
 };
 
-var randomScalingFactor = function () {
+const randomScalingFactor = function () {
   return (Math.random() > 0.5 ? 1.0 : 1.0) * Math.round(Math.random() * 100);
 };
 
-var line1 = [
+const line1 = [
   randomScalingFactor(),
   randomScalingFactor(),
   randomScalingFactor(),
@@ -27,7 +27,7 @@ var line1 = [
   randomScalingFactor(),
 ];
 
-var line2 = [
+const line2 = [
   randomScalingFactor(),
   randomScalingFactor(),
   randomScalingFactor(),
@@ -42,7 +42,7 @@ var line2 = [
   randomScalingFactor(),
 ];
 
-var MONTHS = [
+const MONTHS = [
   "January",
   "February",
   "March",
@@ -56,7 +56,7 @@ var MONTHS = [
   "November",
   "December",
 ];
-var config = {
+const config = {
   type: "line",
   data: {
     labels: MONTHS,
@@ -109,5 +109,5 @@ var config = {
   } */
 };
 
-var ctx = document.getElementById("canvas").getContext("2d");
-var myLine = new Chart(ctx, config);
+const ctx = document.getElementById("canvas");
+const myLine = new Chart(ctx, config);

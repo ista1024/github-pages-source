@@ -13,11 +13,8 @@
     ></script>
   </head>
   <body style="font-family: consolas">
-    <div id="tmpDiv002">
-      <canvas id="tmpCanvas001" width="400" height="400"></canvas>
-    </div>
     <div id="tmpDiv003">
-      <canvas id="canvas" width="400" height="400"></canvas>
+      <canvas id="canvas"></canvas>
     </div>
     <script src="./chart.js"></script>
     <script>
@@ -36,9 +33,9 @@
       };
       const config001 = {
         type: "line",
-        data: data,
+        data: data001,
       };
-      const ctx001 = document.getElementById("tmpCanvas001");
+      const ctx001 = document.getElementById("canvas");
     </script>
   </body>
 </html>

@@ -1,5 +1,5 @@
-import { postSlugs, postForSlug } from "../../posts";
-import Layout from "../../components/Layout";
+import { postSlugs, postForSlug } from "@/posts";
+import Layout from "@/components/Layout";
 import ReactMarkdown from "react-markdown";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { nightOwl } from "react-syntax-highlighter/dist/cjs/styles/prism";

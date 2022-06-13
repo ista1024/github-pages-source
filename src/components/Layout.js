@@ -1,5 +1,5 @@
 import Head from "next/head";
-import ActiveLink from "../components/ActiveLink";
+import ActiveLink from "@/components/ActiveLink";
 
 function Layout({ children, pageTitle }) {
   return (
