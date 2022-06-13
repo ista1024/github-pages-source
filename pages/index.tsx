@@ -1,57 +1,57 @@
-import { posts } from "@/posts/index";
+import type { NextPage } from "next";
+import Head from "next/head";
+import Image from "next/image";
+import styles from "@/styles/Home.module.css";
 
-import Layout from "@/components/Layout";
-import Link from "next/link";
-
-const Index = ({ posts }: any) => {
+const Home: NextPage = () => {
   return (
-    <Layout pageTitle="My Blog">
-      <div className="prose max-w-none">
-        <h1>Blog Posts</h1>
-      </div>
-      <PostsList posts={posts} />
-    </Layout>
-  );
-};
+    <div className={styles.container}>
+      <Head>
+        <title>ista1024 Next App</title>
+        <meta name="description" content="Next app for ista1024" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 
-const PostsList = ({ posts }: any) => {
-  if (!posts || !posts.length) return <p>No posts found</p>;
+      <main className={styles.main}>
+        <h1 className={styles.title}>Welcome</h1>
 
-  return (
-    <div className="w-full">
-      <ul className="mt-4">
-        {posts.map((post: any) => {
-          const { frontmatter, slug } = post;
-          const { description, date, title } = frontmatter;
+        <div className={styles.grid}>
+          <a href="./blog" className={styles.card}>
+            <h2>Blog &rarr;</h2>
+            <p>My simple tech blog! 🚀</p>
+          </a>
 
-          return (
-            <li
-              key={slug}
-              className="px-8 py-2 m-0 mt-4 border-b border-card-border hover:bg-gray-100"
-            >
-              <Link href={`/posts/${slug}`}>
-                <a>
-                  <div className="text-xl font-medium">{title}</div>
-                  <p className="mt-2 mb-4 font-light">{description}</p>
-                  <p className="text-sm font-hairline">{date}</p>
-                </a>
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
+          <a href="./" className={styles.card}>
+            <h2>Web3 test module &rarr;</h2>
+            <p>Simple web module to test web3 w block-chain 🧱⛓</p>
+          </a>
+
+          <a href="https://github.com/ista1024" className={styles.card}>
+            <h2>About me &rarr;</h2>
+            <p>A bit of myself 🧑🏻‍💻</p>
+          </a>
+
+          <a href="https://github.com/ista1024" className={styles.card}>
+            <h2>Github &rarr;</h2>
+            <p>Have a look my github 😊</p>
+          </a>
+        </div>
+      </main>
+
+      <footer className={styles.footer}>
+        <a
+          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Powered by{" "}
+          <span className={styles.logo}>
+            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
+          </span>
+        </a>
+      </footer>
     </div>
   );
 };
 
-export async function getStaticProps() {
-  const postsData = posts();
-
-  return {
-    props: {
-      posts: postsData,
-    },
-  };
-}
-
-export default Index;
+export default Home;

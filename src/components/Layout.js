@@ -37,6 +37,9 @@ function AppNav() {
   return (
     <nav className="text-2xl text-gray-600">
       <ActiveLink href="/" activeClassName="text-purple-500">
+        <a className="mr-8 hover:text-purple-500">Home</a>
+      </ActiveLink>
+      <ActiveLink href="/blog" activeClassName="text-purple-500">
         <a className="mr-8 hover:text-purple-500">Blog</a>
       </ActiveLink>
       <ActiveLink href="/about" activeClassName="text-purple-500">
