@@ -50,7 +50,7 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const paths = postSlugs().map((slug) => `/blog/${slug}`);
+  const paths = postSlugs().map((slug) => `/posts/${slug}`);
 
   return {
     paths,
