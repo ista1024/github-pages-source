@@ -1,11 +1,11 @@
+import { KeyObject } from "crypto";
 import matter from "gray-matter";
 
 export const postSlugs = () =>
   ((context) => {
-    const keys = context.keys();
-    return context
-      .keys()
-      .map((key) => key.replace(/(^.*?)[\\\/]/, "").slice(0, -3));
+    const keys = context.keys().filter((key) => key.includes("./"));
+    // .map((key) => key.replace("/posts/posts", "/posts"));
+    return keys.map((key) => key.replace(/(^.*?)[\\\/]/, "").slice(0, -3));
   })(require.context("./", true, /\.md$/));
 
 export const postForSlug = async (slug) => {
