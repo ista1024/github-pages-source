@@ -1,4 +1,4 @@
-import { postSlugs, postForSlug } from "@/posts";
+import { postSlugs, postForSlug } from "@/posts/index";
 import Layout from "@/components/Layout";
 import ReactMarkdown from "react-markdown";
 import SyntaxHighlighter from "react-syntax-highlighter";

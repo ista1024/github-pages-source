@@ -3,6 +3,7 @@ import matter from "gray-matter";
 export const postSlugs = () =>
   ((context) => {
     const keys = context.keys();
+    console.log("postSlugs", keys);
     return context
       .keys()
       .map((key) => key.replace(/(^.*?)[\\\/]/, "").slice(0, -3));
@@ -20,7 +21,8 @@ export const postForSlug = async (slug) => {
 
 export const posts = () =>
   ((context) => {
-    const keys = context.keys();
+    const keys = context.keys().filter((key) => key.includes("./"));
+    console.log("posts", keys);
     const documents = keys.map(context);
 
     return keys
